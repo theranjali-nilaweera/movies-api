@@ -1,0 +1,21 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "quotemark": [true, "single", "jsx-double"],
+        "no-console": false,
+        "no-unused-expression": false,
+        "no-consecutive-blank-lines": [true, 1],
+        "ordered-imports": [
+            false]
+    },
+    "rulesDirectory": [],
+    "linterOptions": {
+        "exclude": [
+            "src/open-weather-map/test-data.ts"
+        ]
+    }
+}
