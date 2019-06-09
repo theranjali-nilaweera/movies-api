@@ -1,0 +1,54 @@
+class Charge {
+    public provider: string;
+    public cost: number;
+
+    constructor(provider: string, cost: number) {
+        this.provider = provider;
+        this.cost = cost;
+    }
+}
+
+export class MovieDetail {
+    public rated: string;
+    public released: string;
+    public runtime: string;
+    public genre: string;
+    public director: string;
+    public writer: string;
+    public actors: string;
+    public plot: string;
+    public language: string;
+    public country: string;
+    public awards: string;
+    public metascore: number;
+    public rating: number;
+    public votes: number;
+    public id: string;
+    public type: string;
+    public price: Array<Charge>;
+
+    constructor(response: any) {
+        this.title = response.Title;
+        this.year = response.Year;
+        this.rated = response.Rated;
+        this.released = response.Released;
+        this.runtime = response.Runtime;
+        this.genre = response.Genre;
+        this.director = response.Director;
+        this.writer = response.Writer;
+        this.actors = response.Actors;
+        this.plot = response.Plot;
+        this.language = response.Language;
+        this.country = response.Country;
+        this.awards = response.Awards;
+        this.poster = response.Poster;
+        this.metascore = response.Metascore;
+        this.rating = response.Rating;
+        this.votes = response.Votes;
+        this.id = response.ID;
+        this.type = response.Type;
+    }
+    public addCharge = (providerName : string , rate: number){
+        this.price.push(new Charge(providerName, rate));
+    }
+}
