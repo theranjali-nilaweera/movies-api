@@ -14,7 +14,7 @@ describe('movieFetcher.spec', () => {
 
             log.info('Movies response : %', res);
             expect(res.body).to.be.ok;
-                log.info('text %j',res.body['Movies'][0]);
+            log.info('text %j', res.body.Movies[0]);
             done();
         })
             .catch((errors: any) => {

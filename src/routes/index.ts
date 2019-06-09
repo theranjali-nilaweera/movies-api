@@ -1,6 +1,6 @@
 
 import { Router } from 'express';
-import { index } from '../list/index';
+import { index } from '../movie/index';
 
 export const routes = Router();
 

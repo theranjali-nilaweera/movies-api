@@ -1,12 +1,4 @@
-class Charge {
-    public provider: string;
-    public cost: number;
-
-    constructor(provider: string, cost: number) {
-        this.provider = provider;
-        this.cost = cost;
-    }
-}
+import {Charge} from './Charge';
 
 export class MovieDetail {
     public rated: string;
@@ -25,11 +17,11 @@ export class MovieDetail {
     public votes: number;
     public id: string;
     public type: string;
-    public price: Array<Charge>;
+    public prices: Charge[];
+    public price: number;
 
-    constructor(response: any) {
-        this.title = response.Title;
-        this.year = response.Year;
+        constructor(response: any) {
+        // if (typeof response == 'undefined' || response == null){ return; }
         this.rated = response.Rated;
         this.released = response.Released;
         this.runtime = response.Runtime;
@@ -41,14 +33,17 @@ export class MovieDetail {
         this.language = response.Language;
         this.country = response.Country;
         this.awards = response.Awards;
-        this.poster = response.Poster;
         this.metascore = response.Metascore;
         this.rating = response.Rating;
         this.votes = response.Votes;
         this.id = response.ID;
         this.type = response.Type;
+        this.price = response.Price;
+        this.prices = new Array<Charge>();
+
     }
-    public addCharge = (providerName : string , rate: number){
-        this.price.push(new Charge(providerName, rate));
+
+    public populatePrice(value: Charge[]) {
+        this.prices = value;
     }
 }

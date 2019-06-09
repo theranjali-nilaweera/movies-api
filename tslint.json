@@ -10,13 +10,14 @@
         "no-unused-expression": false,
         "no-consecutive-blank-lines": [true, 1],
         "no-unsafe-any": false,
+        "no-trailing-whitespace": false,
         "ordered-imports": [
             false]
     },
     "rulesDirectory": [],
     "linterOptions": {
         "exclude": [
-            "src/open-weather-map/test-data.ts"
+
         ]
     }
 }
