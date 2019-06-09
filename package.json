@@ -16,8 +16,8 @@
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "ts-clear": "rm -fr lib/* && npm run build-ts",
     "test-ts": "mocha --timeout 15000 --watch --recursive src/**/*.spec.ts  --require ts-node/register --watch-extensions ts",
-    "test-one": "mocha --timeout 15000 --watch --recursive src/movies-api/routes*.spec.ts  --require ts-node/register --watch-extensions ts",
-    "test-two": "mocha --timeout 15000 --watch --recursive src/movies-api/**/*.spec.ts  --require ts-node/register --watch-extensions ts"
+    "test-one": "mocha --timeout 15000 --watch --recursive src/list/movieFetcher.spec.ts  --require ts-node/register --watch-extensions ts",
+    "test-two": "mocha --timeout 15000 --watch --recursive src/list/routes*.spec.ts  --require ts-node/register --watch-extensions ts"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
   "homepage": "https://github.com/theranjali-nilaweera/movies-api#readme",
   "dependencies": {
     "@types/cors": "^2.8.4",
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",

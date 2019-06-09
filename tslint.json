@@ -9,6 +9,7 @@
         "no-console": false,
         "no-unused-expression": false,
         "no-consecutive-blank-lines": [true, 1],
+        "no-unsafe-any": false,
         "ordered-imports": [
             false]
     },
