@@ -1,19 +1,18 @@
 import request from 'superagent';
-import { getMovies } from './movieFetcher';
-import { MovieProvider } from './MovieProvider';
+import { getMovies } from '../movieFetcher';
+import { MovieProvider } from '../MovieProvider';
 import { MovieSummary } from './MovieSummary';
-import { movieIdCleaner } from './moviePrefixHelper';
-import { createLog } from '../logs/logging';
-import { saveCache, MOVIE_IDS } from '../cache/cacheProvider';
+import { movieIdCleaner } from '../moviePrefixHelper';
+import { createLog } from '../../logs/logging';
+import { saveCache, MOVIE_CACHE_KEY } from '../../cache/cacheProvider';
 
 const log = createLog(__filename);
 
 export const movieProviders = [new MovieProvider('Cinema World', 'cinemaworld', 'cw'),
     new MovieProvider('Film World', 'filmworld', 'fw')];
-
+//renm
 export const getAllMovieSummaries = async (): Promise<any> => {
     log.info('getAllMovieSummaries');
-    const gotAllValues = false;
 
     const movies = await Promise.all(summaryRequests());
     log.info('getAllMovieSummaries');
@@ -46,6 +45,6 @@ const transformMovieSummaries = (unProcessedMovies: any[]): Promise<MovieSummary
     });
 
     log.info('transformMovieSummaries>processedMovies values %s', Array.from(processedMovies.values()));
-    saveCache(MOVIE_IDS, Array.from(processedMovies.keys()));
+    saveCache(MOVIE_CACHE_KEY, Array.from(processedMovies.keys()));
     return Promise.resolve(Array.from(processedMovies.values()));
 };

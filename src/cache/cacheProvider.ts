@@ -1,11 +1,11 @@
 import NodeCache from 'node-cache';
-const myCache = new NodeCache();
-export const MOVIE_IDS = 'MOVIE_IDS';
+const movieCache = new NodeCache();
+export const MOVIE_CACHE_KEY = 'MOVIE_IDS';
 
-export const saveCache =  (key: string, value: any): Promise<boolean> => {
-    return Promise.resolve(myCache.set(key, value, 10000));
+export const saveCache = (key: string, value: string[]): boolean => {
+    return movieCache.set(key, value, 10000);
 };
 
-export const fetchCache =  (key: string): Promise<any> => {
-  return Promise.resolve(myCache.get(key));
+export const fetchCache = (key: string): string[] => {
+  return movieCache.get(key);
 };

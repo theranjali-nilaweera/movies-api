@@ -1,10 +1,10 @@
 import request from 'superagent';
-import { getMovie } from './movieFetcher';
-import { MovieProvider } from './MovieProvider';
-import { movieIdCleaner } from './moviePrefixHelper';
-import { createLog } from '../logs/logging';
-import { fetchCache, MOVIE_IDS } from '../cache/cacheProvider';
-import {getAllMovieSummaries, movieProviders } from './getMovieSummaries';
+import { getMovie } from '../movieFetcher';
+import { MovieProvider } from '../MovieProvider';
+import { movieIdCleaner } from '../moviePrefixHelper';
+import { createLog } from '../../logs/logging';
+import { fetchCache, MOVIE_CACHE_KEY } from '../../cache/cacheProvider';
+import {getAllMovieSummaries, movieProviders } from '../summary/getMovieSummaries';
 import {MovieDetail} from './MovieDetail';
 import {Charge} from './Charge';
 import R from 'ramda';
@@ -16,7 +16,7 @@ export const getAllMovieDetails =  async (): Promise<any> => {
     log.info('getAllMovieDetails');
     const gotAllValues = false;
 
-    let movieIds = await fetchCache(MOVIE_IDS);
+    let movieIds = await fetchCache(MOVIE_CACHE_KEY);
     log.info('getetails>getAllMovieDetails %j', movieIds);
     if (isNil(movieIds)) {
         const movies = await getAllMovieSummaries();
@@ -36,6 +36,7 @@ const detailRequests = async (movieIds: string[]): Promise<MovieDetail[]> => {
         const prices = new Array<Charge>();
         (response || []).forEach( (singleDetail: any) => {
             movieDetail = new MovieDetail(singleDetail);
+            log.info('transformMovieSummaries>movieDetail.id %j and all details \n %j', movieDetail.id, singleDetail );
             prices.push(new Charge(movieDetail.id, movieDetail.price));
             if (!moviDetails.has(movieDetail.id)) {
                  movieDetail.populatePrice(prices);

@@ -1,4 +1,4 @@
-import { movieIdCleaner } from './moviePrefixHelper';
+import { movieIdCleaner } from '../moviePrefixHelper';
 
 export class MovieSummary {
     public title: string;

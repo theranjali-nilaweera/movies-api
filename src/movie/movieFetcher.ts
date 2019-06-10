@@ -1,7 +1,7 @@
 import request from 'superagent';
 import { createLog } from '../logs/logging';
 import { MovieProvider } from './MovieProvider';
-import { getResponse } from './getResponse';
+import { getResponse } from '../retry/getMoviesWithRetry';
 const log = createLog(__filename);
 const baseUrl = 'webjetapitest.azurewebsites.net/api/';
 

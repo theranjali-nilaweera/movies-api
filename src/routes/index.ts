@@ -1,7 +1,7 @@
 
 import { Router } from 'express';
-import { index } from '../movie/index';
+import { movieRouter } from '../movie/index';
 
 export const routes = Router();
 
-routes.use('/', index);
+routes.use('/', movieRouter);
