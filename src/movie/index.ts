@@ -8,7 +8,7 @@ const index: Router = Router();
 
 index.get('/summary', asyncHandler(async (req: Request, res: Response) => {
     log.info('Fetching all movies summary');
-    res.json(await getAllMovieSummaries());
+    return res.json(await getAllMovieSummaries());
 }));
 
 index.get('/detail', asyncHandler(async (req: Request, res: Response) => {

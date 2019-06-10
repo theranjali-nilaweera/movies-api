@@ -17,8 +17,9 @@
     "ts-clear": "rm -fr lib/* && npm run build-ts",
     "test-ts": "mocha --timeout 15000 --watch --recursive src/**/*.spec.ts  --require ts-node/register --watch-extensions ts",
     "test-one": "mocha --timeout 15000 --watch --recursive src/movie/movieFetcher.spec.ts  --require ts-node/register --watch-extensions ts",
-    "test-two": "mocha --timeout 15000 --watch --recursive src/movie/routes*l.spec.ts  --require ts-node/register --watch-extensions ts",
-    "test-3": "mocha --timeout 15000 --watch --recursive src/cache/*.spec.ts  --require ts-node/register --watch-extensions ts"
+    "test-3": "mocha --timeout 15000 --watch --recursive src/movie/routes*l.spec.ts  --require ts-node/register --watch-extensions ts",
+    "test-2": "mocha --timeout 15000 --watch --recursive src/movie/routes*y.spec.ts  --require ts-node/register --watch-extensions ts",
+    "test-4": "mocha --timeout 15000 --watch --recursive src/cache/*.spec.ts  --require ts-node/register --watch-extensions ts"
   },
   "repository": {
     "type": "git",

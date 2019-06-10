@@ -20,10 +20,10 @@ describe('router-get-movie-summary.spec', () => {
             .then((res: any) => {
                 expect(res).to.be.ok;
                 const found = prop('body', res);
-                log.info('movies returned %j', found);
+                log.info('movies returned %j', found[0].title);
+                expect(found[0].title).to.be.ok;
                 done();
-            })
-            .catch((errors: any) => {
+            }).catch((errors: any) => {
                 log.error('movies not returned errors: %j', errors);
                 done(errors);
             });
