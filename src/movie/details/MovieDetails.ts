@@ -1,4 +1,4 @@
-import {Charge} from './Charge';
+import {Ticket} from './Ticket';
 
 export class MovieDetail {
     public rated: string;
@@ -17,7 +17,7 @@ export class MovieDetail {
     public votes: number;
     public id: string;
     public type: string;
-    public prices: Charge[];
+    public prices: Ticket[];
     public price: number;
 
         constructor(response: any) {
@@ -39,11 +39,11 @@ export class MovieDetail {
         this.id = response.ID;
         this.type = response.Type;
         this.price = response.Price;
-        this.prices = new Array<Charge>();
+        this.prices = new Array<Ticket>();
 
     }
 
-    public populatePrice(value: Charge[]) {
+    public populatePrice(value: Ticket[]) {
         this.prices = value;
     }
 }

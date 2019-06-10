@@ -1,4 +1,4 @@
-export class Charge {
+export class Ticket {
     public provider: string;
     public cost: number;
 

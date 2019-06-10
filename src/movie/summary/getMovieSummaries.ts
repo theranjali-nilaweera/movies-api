@@ -1,5 +1,5 @@
 import request from 'superagent';
-import { getMovies } from '../movieFetcher';
+import { getMovies } from '../remote/fetcherMoviesRemote';
 import { MovieProvider } from '../MovieProvider';
 import { MovieSummary } from './MovieSummary';
 import { movieIdCleaner } from '../moviePrefixHelper';

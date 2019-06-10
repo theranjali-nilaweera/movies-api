@@ -1,5 +1,5 @@
-import {createLog} from '../logs/logging';
-import {getMovies, getMovie, movieProviders} from './movieFetcher';
+import {createLog} from '../../logs/logging';
+import {getMovies, getMovie, movieProviders} from './fetcherMoviesRemote';
 
 const log = createLog(__filename);
 
