@@ -7,33 +7,31 @@ describe('cacheProvider.spec', () => {
     const chai = require('chai');
     const expect = chai.expect;
     const TEMP_KEY = 'Test_Key';
-    const TEMP_VALUE = 'Test_Value';
+    const TEMP_VALUE = ['Test_Value1', 'Test_Value2'];
 
     it('should save cache  ', (done) => {
-
-        saveCache(TEMP_KEY, TEMP_VALUE)
-            .then((res: any) => {
-                expect(res).to.be.true;
-                log.info('temp value cached: %j', res);
-                done();
-        }).catch((errors: any) => {
-                log.error('Movitemp value not cached : %j', errors);
-                done(errors);
-        });
+        try {
+            const res = saveCache(TEMP_KEY, TEMP_VALUE);
+            expect(res).to.be.true;
+            log.info('temp value cached: %j', res);
+            done();
+        } catch (errors) {
+            log.error('Movitemp value not cached : %j', errors);
+            done(errors);
+        }
 
     });
 
     it('should feth cache  ', (done) => {
-
-        fetchCache(TEMP_KEY)
-            .then((res: any) => {
+        try {
+            const res = fetchCache(TEMP_KEY);
             log.info('temp value cached: %j', res);
             expect(res).to.equal(TEMP_VALUE);
             done();
-        }).catch((errors: any) => {
-                log.error('temp value not cached : %j', errors);
-                done(errors);
-        });
+        } catch (errors) {
+            log.error('temp value not cached : %j', errors);
+            done(errors);
+        }
 
     });
 

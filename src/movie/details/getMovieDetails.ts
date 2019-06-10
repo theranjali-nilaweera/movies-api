@@ -16,7 +16,7 @@ export const getAllMovieDetails =  async (): Promise<any> => {
     log.info('getAllMovieDetails');
     const gotAllValues = false;
 
-    let movieIds = await fetchCache(MOVIE_CACHE_KEY);
+    let movieIds = fetchCache(MOVIE_CACHE_KEY);
     log.info('getetails>getAllMovieDetails %j', movieIds);
     if (isNil(movieIds)) {
         const movies = await getAllMovieSummaries();

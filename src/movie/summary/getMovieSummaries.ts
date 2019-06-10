@@ -10,7 +10,7 @@ const log = createLog(__filename);
 
 export const movieProviders = [new MovieProvider('Cinema World', 'cinemaworld', 'cw'),
     new MovieProvider('Film World', 'filmworld', 'fw')];
-//renm
+
 export const getAllMovieSummaries = async (): Promise<any> => {
     log.info('getAllMovieSummaries');
 
@@ -43,8 +43,6 @@ const transformMovieSummaries = (unProcessedMovies: any[]): Promise<MovieSummary
             }
         });
     });
-
-    log.info('transformMovieSummaries>processedMovies values %s', Array.from(processedMovies.values()));
     saveCache(MOVIE_CACHE_KEY, Array.from(processedMovies.keys()));
     return Promise.resolve(Array.from(processedMovies.values()));
 };
