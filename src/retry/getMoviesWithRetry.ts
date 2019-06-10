@@ -16,15 +16,24 @@ export const getResponse = async (url: string): Promise<any> => {
             log.info('getResponse try %j', i);
             const respone = await request
                 .get(url)
+                .timeout({response: 20000})
                 .set(apiToken);
             log.info('getResponse got value %s', respone);
-            return respone;
+            return Promise.resolve(respone);
         } catch (err) {
-            log.info('getResponse loopGet has error in loop');
+            log.info('getResponse error %j', err);
+            if (equals(404, err.status)) {
+                return Promise.resolve({});
+            }
+            await delay(10 * i);
         }
     }
     console.log(i); // 3
 
+};
+
+const delay = (duration: number) => {
+    new Promise((resolve) => setTimeout(resolve, duration));
 };
 
 export const getResponseX = async (url: string): Promise<any> => {

@@ -43,6 +43,7 @@ const transformMovieSummaries = (unProcessedMovies: any[]): Promise<MovieSummary
             }
         });
     });
+    // log.info('transformMovieSummaries>processedMovies keys to cache %j',  Array.from(processedMovies.keys()));
     saveCache(MOVIE_CACHE_KEY, Array.from(processedMovies.keys()));
     return Promise.resolve(Array.from(processedMovies.values()));
 };

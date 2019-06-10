@@ -15,7 +15,7 @@ describe('router-get-movie-detail.spec', () => {
     log.info('retrieve movie details ');
     it('get', (done) => {
         request(app)
-            .get(`/detail`)
+            .get(`/detail/2488496`)
             .expect(200)
             .then((res: any) => {
                 expect(res).to.be.ok;
