@@ -20,14 +20,14 @@ export const getAllMovieDetails =  async (): Promise<any> => {
     log.info('getetails>getAllMovieDetails %j', movieIds);
     if (isNil(movieIds)) {
         const movies = await getAllMovieSummaries();
-        movieIds = movies.keys();
-        log.info('getetails>new %j', movies.keys());
+        movieIds = Array.from(movies.keys());
+        log.info('getetails>new %j', movieIds);
     }
 
     return await detailRequests(movieIds);
 };
 
-const detailRequests = async (movieIds: string[]): Promise<Map<string, MovieDetail>> => {
+const detailRequests = async (movieIds: string[]): Promise<MovieDetail[]> => {
     log.info('getetails>detailRequests %j', movieIds);
     const moviDetails = new Map<string, MovieDetail>();
     movieIds.forEach(async (movieId) => {
@@ -47,7 +47,7 @@ const detailRequests = async (movieIds: string[]): Promise<Map<string, MovieDeta
 
          // moviDetails.push(movieDetail);
     });
-    return Promise.resolve(moviDetails);
+    return Promise.resolve(Array.from(moviDetails.values()));
 };
 
 const singleMovieRequest = (movieId: string): Array<Promise<any>> => {

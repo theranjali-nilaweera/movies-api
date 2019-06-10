@@ -2,8 +2,8 @@ export class Charge {
     public provider: string;
     public cost: number;
 
-    constructor(provider: string, cost: number) {
-        this.provider = this.providerForId(provider);
+    constructor(movieId: string, cost: number) {
+        this.provider = this.providerForId(movieId);
         this.cost = cost;
     }
     public providerForId = (movieId: string): string => {

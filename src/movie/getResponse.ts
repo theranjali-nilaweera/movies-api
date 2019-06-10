@@ -2,7 +2,6 @@ import request from 'superagent';
 import R from 'ramda';
 const {isNil, equals} = R;
 import {createLog} from '../logs/logging';
-import {async} from 'q';
 const apiToken = {'x-access-token': 'sjd1HfkjU83ksdsm3802k'};
 
 const log = createLog(__filename);
@@ -18,7 +17,7 @@ export const getResponse = async (url: string): Promise<any> => {
             const respone = await request
                 .get(url)
                 .set(apiToken);
-            log.info('getResponse got value %j', respone);
+            log.info('getResponse got value %s', respone);
             return respone;
         } catch (err) {
             log.info('getResponse loopGet has error in loop');

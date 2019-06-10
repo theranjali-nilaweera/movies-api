@@ -38,14 +38,14 @@ const transformMovieSummaries = (unProcessedMovies: any[]): Promise<MovieSummary
             const id = movieIdCleaner(singleMovie.ID);
             // log.info('transformMovieSummaries>singleMovie %j id %j', id, singleMovie);
             if (!processedMovies.has(id)) {
-                log.info('transformMovieSummaries>singleMovie no ID putting anew');
+                // log.info('transformMovieSummaries>singleMovie no ID putting anew');
                 processedMovies.set(id, new MovieSummary(singleMovie));
-                log.info('transformMovieSummaries>processedMovies %j', processedMovies.get(id));
+                log.info('transformMovieSummaries>processedMovies %s', processedMovies.get(id));
             }
         });
     });
 
-    log.info('transformMovieSummaries>processedMovies values %j', Array.from(processedMovies.values()));
-     // saveCache(MOVIE_IDS, processedMovies.keys());
+    log.info('transformMovieSummaries>processedMovies values %s', Array.from(processedMovies.values()));
+    saveCache(MOVIE_IDS, Array.from(processedMovies.keys()));
     return Promise.resolve(Array.from(processedMovies.values()));
 };
