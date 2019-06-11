@@ -25,8 +25,9 @@ describe('cacheProvider.spec', () => {
     it('should feth cache  ', (done) => {
         try {
             const res = fetchCache(TEMP_KEY);
+            expect(res[0]).to.be.ok;
             log.info('temp value cached: %j', res);
-            expect(res).to.equal(TEMP_VALUE);
+            expect(res[0]).to.equal(TEMP_VALUE[0]);
             done();
         } catch (errors) {
             log.error('temp value not cached : %j', errors);
