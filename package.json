@@ -50,7 +50,7 @@
     "@types/superagent": "^3.8.4",
     "@types/supertest": "^2.0.6",
     "chai": "^4.2.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "mocha": "^5.2.0",
     "nodemon": "^1.19.1",
     "ramda": "^0.26.1",
